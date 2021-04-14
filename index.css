@@ -1,0 +1,137 @@
+html, body {
+	margin: 0px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	overflow-x: hidden;
+}
+* {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+nav {
+	width: 110vw;
+	padding: 1rem calc(1rem + 5vw);
+	margin: 0px -5vw;
+	box-shadow: 0px 0px 0.3rem 0px #000000;
+	font-weight: lighter;
+
+	display: grid;
+	grid-template-columns: auto auto 1fr auto;
+	grid-template-rows: 3rem;
+	column-gap: 0.5rem;
+	align-items: center;
+}
+nav > img {
+	height: 100%;
+}
+nav > span {
+	font-size: 1.5rem;
+}
+nav > a {
+	font-size: 1.25rem;
+	grid-column: 4;
+	color: #000000;
+	transition: 0.15s ease-in-out color;
+}
+nav > a:hover {
+	color: #999999;
+	text-decoration: none;
+}
+
+header {
+	/* screen height - nav height - image height - main > p padding - main > p height */
+	padding: calc(calc(100vh - 5rem - 128px - 1rem - 8rem) / 2) 0px;
+	display: grid;
+	grid-template-columns: 1fr auto auto 1fr;
+	grid-template-rows: 1fr auto 1fr;
+	gap: 0.25rem 1rem;
+}
+header > img {
+	grid-column: 2;
+	grid-row: 1 / span 3;
+}
+header > h1 {
+	grid-column: 3;
+	grid-row: 2;
+	margin: 0px;
+	white-space: nowrap;
+}
+header > p {
+	grid-column: 3;
+	grid-row: 3;
+	margin: 0px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+main {
+	display: grid;
+	grid-template-areas:
+		"text"
+		"example"
+		"doc";
+	gap: 1rem;
+}
+main > p {
+	min-height: 8rem;
+	font-size: 1.5rem;
+	font-weight: lighter;
+	margin: 0px;
+	padding-bottom: 1rem;
+	display: flex;
+	flex-direction: column-reverse;
+	grid-area: text;
+}
+main > article {
+	padding: 1.5rem;
+	border-radius: 1rem;
+	box-shadow: 0px 0px 0.3rem 0px #000000;
+}
+main > article.example {
+	grid-area: example;
+}
+main > article > *:first-child, main > article > *:first-child *:first-child {
+	margin-top: 0px;
+}
+main > article > *:last-child, main > article > *:last-child *:last-child {
+	margin-bottom: 0px;
+}
+
+footer {
+	background-color: #333333;
+	color: #ffffff;
+	margin-top: 1rem;
+}
+footer a {
+	color: #555eda;
+}
+footer .huge-slash {
+	font-size: 1.5em;
+	position: relative;
+	top: 0.125em;
+	margin: 0px -0.25ch;
+}
+
+main, footer {
+	padding: 1rem 1rem;
+}
+
+@media screen and (min-width: 550px) {
+	nav {
+		padding: 1rem calc(12vw + 5vw);
+	}
+	main {
+		grid-template-areas:
+			"text text"
+			"example doc";
+	}
+	main, footer {
+		padding: 1rem 12vw;
+	}
+}
