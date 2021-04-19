@@ -72,10 +72,7 @@ header > p {
 
 main {
 	display: grid;
-	grid-template-areas:
-		"text"
-		"example"
-		"doc";
+	grid-template-areas: "text";
 	gap: 1rem;
 }
 main > p {
@@ -127,9 +124,8 @@ main, footer {
 		padding: 1rem calc(12vw + 5vw);
 	}
 	main {
-		grid-template-areas:
-			"text text"
-			"example doc";
+		grid-template-areas: "text text";
+		grid-template-columns: 50% 50%;
 	}
 	main, footer {
 		padding: 1rem 12vw;
