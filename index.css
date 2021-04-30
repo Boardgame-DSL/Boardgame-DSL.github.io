@@ -47,20 +47,49 @@ nav > a:hover {
 header {
 	/* screen height - nav height - image height - main > p padding - main > p height */
 	padding: calc(calc(100vh - 5rem - 128px - 1rem - 8rem) / 2) 0px;
+	position: relative;
+	overflow: hidden;
 	display: grid;
 	grid-template-columns: 1fr auto auto 1fr;
 	grid-template-rows: 1fr auto 1fr;
 	gap: 0.25rem 1rem;
 }
+header::before {
+	content: "";
+	width: 9000px;
+	height: 3600px;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: -1;
+	transform:
+		translate(-50%, -50%)
+		scale(0.5)
+		perspective(75em)
+		rotateY(10deg)
+		rotateX(25deg)
+		rotateZ(-12deg);
+
+	background-image: url("./games-showcase.png");
+	background-attachment: scroll;
+	animation: background-scroll 200s linear infinite;
+}
+@keyframes background-scroll {
+	0% { background-position: 0px 0px; }
+	100% { background-position: 4500px 18000px; }
+}
 header > img {
 	grid-column: 2;
 	grid-row: 1 / span 3;
+	filter: drop-shadow(1px 1px 0px #ffffff) drop-shadow(1px -1px 0px #ffffff) drop-shadow(-1px 1px 0px #ffffff) drop-shadow(-1px -1px 0px #ffffff);
 }
 header > h1 {
 	grid-column: 3;
 	grid-row: 2;
 	margin: 0px;
 	white-space: nowrap;
+	text-shadow: 1px 1px 0px white, 1px -1px 0px white, -1px 1px 0px white, -1px -1px 0px white;
 }
 header > p {
 	grid-column: 3;
@@ -68,6 +97,7 @@ header > p {
 	margin: 0px;
 	display: flex;
 	justify-content: space-evenly;
+	text-shadow: 1px 1px 0px white, 1px -1px 0px white, -1px 1px 0px white, -1px -1px 0px white;
 }
 
 main {
